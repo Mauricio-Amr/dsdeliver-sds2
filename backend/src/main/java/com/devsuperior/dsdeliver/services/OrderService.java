@@ -36,6 +36,8 @@ public class OrderService {
 		public OrderDTO insert(OrderDTO dto) {
 			Order order =new Order(null, dto.getAddress(), dto.getLatitude(), dto.getLongitude(),
 					Instant.now(), OrderStatus.PENDING);
+			
+			//esse for é importannte para associar o produto com o pedido//
 			for (ProductDTO p : dto.getProducts()) {
 				Product product = productRepository.getOne(p.getId());
 				order.getProducts().add(product);
@@ -45,5 +47,13 @@ public class OrderService {
 			return new OrderDTO(order);
 		}
 		
-		
-}
+		@Transactional
+		public OrderDTO setDelivered(Long id) {
+			Order order = repository.getOne(id);
+			order.setStatus(OrderStatus.DELIVERED);
+			order = repository.save(order);
+			return new OrderDTO(order);
+			
+		}
+			
+	}
