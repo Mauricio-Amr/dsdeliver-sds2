@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import AsyncSelect from 'react-select/async' ;
 import { fetchLocalMapBox } from '../api';
-import { OrderLocationdata } from './types';
+import { OrderLocationData } from './types';
 
 
 const initialPosition = {
     
-    "lng" : 101.501,
-    "lat" : 9.98
+    "lng" : -23.634570020951607, 
+    "lat" : -46.64115888667451
 }
 
 type Place= {
@@ -21,7 +21,7 @@ type Place= {
 }
 
 type Props = {
-    onChangeLocation: (location: OrderLocationdata) => void;
+    onChangeLocation: (location: OrderLocationData) => void;
 }
 
 
