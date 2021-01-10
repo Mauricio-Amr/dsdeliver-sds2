@@ -6,3 +6,10 @@ price : number;
 description : string;
 imageUri : string;
 }
+
+export type OrderLocationdata = {
+    address : string;
+    latitude : number;
+    longitude : number;
+       
+}
